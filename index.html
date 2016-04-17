@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>reveal.js – The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/presentation.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Ember.js</h1>
+          <h3>Guts &amp; Goals</h3>
+        </section>
+
+        <section>
+          <h3>Ember.js</h3>
+          <h1>Guts</h1>
+        </section>
+
+
+
+        <section data-transition="convex-in slide-out">
+          <img class="screenshot" src="images/embercli.png"/>
+        </section>
+        <section data-transition="slide-in convex-out">
+          <article>
+            <pre class="invisible big"><code class="bash" data-trim data-noescape>
+              ember <span class="hljs-keyword">new</span> <span class="hljs-ember-arg">sample-application</span>
+            </code></pre>
+            <pre class="invisible big"><code class="bash" data-trim data-noescape>
+              ember <span class="hljs-keyword">generate</span> <span class="hljs-ember-arg">route whatever</span>
+            </code></pre>
+          </article>
+          <article class="fragment">
+            <pre class="invisible big"><code class="bash" data-trim data-noescape>
+              ember <span class="hljs-keyword">serve</span>
+            </code></pre>
+            <pre class="invisible big"><code class="bash" data-trim data-noescape>
+              ember <span class="hljs-keyword">test</span>
+            </code></pre>
+          </article>
+          <article class="fragment">
+            <pre class="invisible big"><code class="bash" data-trim data-noescape>
+              ember <span class="hljs-keyword">build</span>
+            </code></pre>
+            <pre class="invisible big"><code class="bash" data-trim data-noescape>
+              ember <span class="hljs-keyword">install</span> <span class="hljs-ember-arg">ember-cli-mirage</span>
+            </code></pre>
+          </article>
+        </section>
+        <section data-transition="convex-in slide-out">
+          <pre class="invisible big"><code class="bash" data-trim data-noescape>
+            ember <span class="hljs-keyword">install</span> <span class="hljs-ember-arg">ember-cli-mirage</span>
+          </code></pre>
+          <div class="images">
+            <img class="current-fragment screenshot" src="images/npm.png"/>
+            <img class="fragment screenshot" src="images/bower.png"/>
+          </div>
+        </section>
+        <section data-transition="slide" data-transition-speed="fast">
+          <pre class="invisible big"><code class="bash" data-trim data-noescape>
+            ember <span class="hljs-keyword">serve</span></span>
+          </code></pre>
+          <img class="screenshot" src="images/express.png"/>
+        </section>
+        <section data-transition="slide" data-transition-speed="fast">
+          <pre class="invisible big"><code class="bash" data-trim data-noescape>
+            ember <span class="hljs-keyword">test</span></span>
+          </code></pre>
+          <div class="images">
+            <img class="screenshot" src="images/qunit.png"/>
+            <img class="fragment screenshot" src="images/phantomjs.png"/>
+          </div>
+        </section>
+        <section data-transition="slide-in convex-out">
+          <pre class="invisible big"><code class="bash" data-trim data-noescape>
+            ember <span class="hljs-keyword">build</span></span>
+          </code></pre>
+          <div class="images">
+            <img class="screenshot" src="images/broccoli.png"/>
+            <div class="fragment columns">
+              <div class="column column-1" style="width: 35%;">
+                <pre class="invisible" style="font-size: 19px;"><code data-trim data-noescape>
+  my-project/
+  ├── app/
+  │   ├── coffee/
+  │   │   └── app.coffee
+  │   └── scss/
+  │       ├── _vars.scss
+  │       └── app.scss
+  ├── dist/
+  │   ├── app.css
+  │   └── app.js
+  └── Brocfile.js
+                </code></pre>
+              </div>
+              <div class="column column-2" style="width: 65%;">
+                <pre class="invisible" style="font-size: 19px;"><code class="js" data-trim data-noescape>
+/* Brocfile.js */
+
+// Import some Broccoli plugins
+var compileSass = require('broccoli-sass');
+var compileCoffee = require('broccoli-coffee');
+var mergeTrees = require('broccoli-merge-trees');
+
+// Specify the Sass and Coffeescript directories
+var sassDir = 'app/scss';
+var coffeeDir = 'app/coffeescript';
+
+// Tell Broccoli how we want the assets
+// to be compiled
+var styles = compileSass([sassDir],
+  'app.scss', 'app.css');
+var scripts = compileCoffee(coffeeDir);
+
+// Merge the compiled styles and scripts
+// into one output directory.
+module.exports = mergeTrees([styles, scripts]);
+                </code></pre>
+              </div>
+            </div>
+            <img class="screenshot fragment" src="images/babel.png"/>
+          </div>
+        </section>
+
+
+
+        <section>
+          <h2>What's inside of Ember.js?</h2>
+          <ul>
+            <li class="fragment">require.js</li>
+            <li class="fragment">jQuery</li>
+            <li class="fragment">rsvp.js</li>
+            <li class="fragment">route-recognizer</li>
+            <li class="fragment">Handlebars *</li>
+            <li class="fragment">Ember Data *</li>
+          </ul>
+        </section>
+
+
+
+        <section>
+          <section>
+            <h2>Ember Data</h2>
+          </section>
+
+          <section>
+            <h2>Releases</h2>
+            <div class="columns">
+              <div class="column-1 ember-releases">
+                <h5>Ember.js</h5>
+                <ol class="releases">
+                  <li style="top:  0.00%"> 1.0.0</li>
+                  <li style="top:  5.10%"> 1.1.0</li>
+                  <li style="top:  8.30%"> 1.2.0</li>
+                  <li style="top: 12.30%" class="year">Jan 1, 2014</li>
+                  <li style="top: 12.80%"> 1.3.0</li>
+                  <li style="top: 16.60%"> 1.4.0</li>
+                  <li style="top: 21.00%"> 1.5.0</li>
+                  <li style="top: 31.00%"> 1.6.0</li>
+                  <li style="top: 35.30%"> 1.7.0</li>
+                  <li style="top: 42.30%"> 1.8.0</li>
+                  <li style="top: 46.40%"> 1.9.0</li>
+                  <li style="top: 48.80%" class="year">Jan 1, 2015</li>
+                  <li style="top: 52.50%">1.10.0</li>
+                  <li style="top: 57.40%">1.11.0</li>
+                  <li style="top: 62.00%">1.12.0</li>
+                  <li style="top: 65.00%">1.13.0</li>
+                  <li style="top: 73.00%"> 2.0.0</li>
+                  <li style="top: 76.50%"> 2.1.0</li>
+                  <li style="top: 80.70%"> 2.2.0</li>
+                  <li style="top: 85.30%" class="year">Jan 1, 2016</li>
+                  <li style="top: 86.90%"> 2.3.0</li>
+                  <li style="top: 91.20%"> 2.4.0</li>
+                  <li style="top: 95.40%"> 2.5.0</li>
+                </ol>
+              </div>
+              <div class="column-2 ember-data-releases">
+                <h5>Ember Data</h5>
+                <ol class="releases">
+                  <li style="top:  0.10%"> 1.0.0-beta.1</li>
+                  <li style="top:  0.40%"> 1.0.0-beta.2</li>
+                  <li style="top:  2.80%"> 1.0.0-beta.3</li>
+                  <li style="top: 11.00%"> 1.0.0-beta.4</li>
+                  <li style="top: 12.30%" class="year">Jan 1, 2014</li>
+                  <li style="top: 13.30%"> 1.0.0-beta.5</li>
+                  <li style="top: 14.70%"> 1.0.0-beta.6</li>
+                  <li style="top: 17.20%"> 1.0.0-beta.7</li>
+                  <li style="top: 27.00%"> 1.0.0-beta.8</li>
+                  <li style="top: 35.20%"> 1.0.0-beta.9</li>
+                  <li style="top: 37.40%">1.0.0-beta.10</li>
+                  <li style="top: 40.80%">1.0.0-beta.11</li>
+                  <li style="top: 45.10%">1.0.0-beta.12</li>
+                  <li style="top: 48.10%">1.0.0-beta.14</li>
+                  <li style="top: 48.80%" class="year">Jan 1, 2015</li>
+                  <li style="top: 53.20%">1.0.0-beta.15</li>
+                  <li style="top: 56.90%">1.0.0-beta.16</li>
+                  <li style="top: 61.70%">1.0.0-beta.17</li>
+                  <li style="top: 62.50%">1.0.0-beta.18</li>
+                  <li style="top: 64.30%">1.0.0-beta.19</li>
+                  <li style="top: 65.40%">1.13.0</li>
+                  <li style="top: 71.90%"> 2.0.0</li>
+                  <li style="top: 76.50%"> 2.1.0</li>
+                  <li style="top: 80.70%"> 2.2.0</li>
+                  <li style="top: 85.30%" class="year">Jan 1, 2016</li>
+                  <li style="top: 86.40%"> 2.3.0</li>
+                  <li style="top: 91.20%"> 2.4.0</li>
+                  <li style="top: 95.40%"> 2.5.0</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <pre class="invisible" style="font-size: 22px;"><code class="js" data-trim data-noescape>
+// app/models/blog-post.js
+import DS from 'ember-data';
+
+export default DS.Model.extend({
+  title: DS.attr('string'),
+  createdAt: DS.attr('date'),
+
+  comments: DS.hasMany('comment')
+});
+
+
+// app/models/comment.js
+import DS from 'ember-data';
+
+export default DS.Model.extend({
+  body: DS.attr('string'),
+  username: DS.attr('string'),
+
+  post: DS.belongsTo('blog-post')
+});
+            </code></pre>
+          </section>
+
+          <section>
+            <img class="screenshot" src="images/ember-without-ember-data.png"/>
+          </section>
+        </section>
+
+
+
+        <section>
+          <section>
+            <h2>Handlebars</h2>
+          </section>
+
+          <section>
+            <h2>Releases</h2>
+            <div class="columns">
+              <div class="column-1 ember-releases">
+                <h5>Ember.js</h5>
+                <ol class="releases">
+                  <li style="top:  0.00%"> 1.0.0</li>
+                  <li style="top:  5.10%"> 1.1.0</li>
+                  <li style="top:  8.30%"> 1.2.0</li>
+                  <li style="top: 12.30%" class="year">Jan 1, 2014</li>
+                  <li style="top: 12.80%"> 1.3.0</li>
+                  <li style="top: 16.60%"> 1.4.0</li>
+                  <li style="top: 21.00%"> 1.5.0</li>
+                  <li style="top: 31.00%"> 1.6.0</li>
+                  <li style="top: 35.30%"> 1.7.0</li>
+                  <li style="top: 42.30%"> 1.8.0</li>
+                  <li style="top: 46.40%"> 1.9.0</li>
+                  <li style="top: 48.80%" class="year">Jan 1, 2015</li>
+                  <li style="top: 52.50%">1.10.0</li>
+                  <li style="top: 57.40%">1.11.0</li>
+                  <li style="top: 62.00%">1.12.0</li>
+                  <li style="top: 65.00%">1.13.0</li>
+                  <li style="top: 73.00%"> 2.0.0</li>
+                  <li style="top: 76.50%"> 2.1.0</li>
+                  <li style="top: 80.70%"> 2.2.0</li>
+                  <li style="top: 85.30%" class="year">Jan 1, 2016</li>
+                  <li style="top: 86.90%"> 2.3.0</li>
+                  <li style="top: 91.20%"> 2.4.0</li>
+                  <li style="top: 95.40%"> 2.5.0</li>
+                </ol>
+              </div>
+              <div class="column-2 ember-data-releases">
+                <h5>&nbsp;</h5>
+                <ol class="releases">
+                  <li style="top:  0.00%">Handlebars</li>
+                  <li style="top: 52.50%">HTMLBars</li>
+                  <li style="top: 65.00%">Glimmer</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Handlebars</h2>
+
+            <div class="columns">
+              <div class="column column-1">
+                <pre class="invisible"><code class="handlebars" data-trim data-noescape>
+&lt;ul&gt;
+  {{#each items as |item|}}
+    {{#if item.completed}}
+      &lt;li&gt;&lt;del&gt;{{item.title}}&lt;/del&gt;&lt;/li&gt;
+    {{else}}
+      &lt;li&gt;{{item.title}}&lt;/li&gt;
+    {{/if}}
+  {{/each}}
+&lt;/ul&gt;
+                </code></pre>
+              </div>
+
+              <div class="column column-2">
+                <pre class="invisible"><code class="js" data-trim data-noescape>
+function(items) {
+  var html = '&lt;ul&gt;';
+
+  for(var i = 0; i &lt; items.length; i++) {
+    var item = items[i];
+
+    html += '&lt;li&gt;';
+
+    if(item.completed) {
+      html += '&lt;del&gt;' + item.title + '&lt;/del&gt;';
+    } else {
+      html += item.title;
+    }
+
+    html += '&lt;/li&gt;';
+  }
+
+  return html + '&lt;/ul&gt;';
+}
+                </code></pre>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section>
+            <h2>HTMLbars</h2>
+
+            <div class="columns">
+              <div class="column column-1">
+                <pre class="invisible"><code class="handlebars" data-trim data-noescape>
+&lt;ul&gt;
+  {{#each items as |item|}}
+    {{#if item.completed}}
+      &lt;li&gt;&lt;del&gt;{{item.title}}&lt;/del&gt;&lt;/li&gt;
+    {{else}}
+      &lt;li&gt;{{item.title}}&lt;/li&gt;
+    {{/if}}
+  {{/each}}
+&lt;/ul&gt;
+                </code></pre>
+              </div>
+
+              <div class="column column-2">
+                <pre class="invisible"><code class="js" data-trim data-noescape>
+function(items) {
+  var list = document.createElement('ul');
+
+  for(var i = 0; i &lt; items.length; i++) {
+    var item = items[i];
+
+    var row = document.createElement('li');
+    var text = dcument.createTextNode(item.title);
+
+    if(item.completed) {
+      var del = document.createElement('del');
+      del.appendChild(text);
+      row.appendChild(del);
+    } else {
+      row.appendChild(text);
+    }
+
+    list.appendChild(row);
+  }
+
+  return list;
+}
+                </code></pre>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section>
+            <h5>Handlebars</h5>
+            <pre class="invisible"><code class="html" data-trim data-noescape>
+&lt;script id="metamorph-173-start" type="text/x-placeholder"&gt;&lt;/script&gt;
+&lt;li&gt;&lt;del&gt;
+&lt;script id="metamorph-174-start" type="text/x-placeholder"&gt;&lt;/script&gt;
+TDL item text
+&lt;script id="metamorph-174-end" type="text/x-placeholder"&gt;&lt;/script&gt;
+&lt;/del&gt;&lt;/li&gt;
+&lt;script id="metamorph-173-end" type="text/x-placeholder"&gt;&lt;/script&gt;
+            </code></pre>
+
+            <br/><br/>
+
+            <h5>HTMLbars</h5>
+            <pre class="invisible centered"><code class="html" data-trim data-noescape>
+              &lt;li&gt;&lt;del&gt;TDL item text&lt;/del&gt;&lt;/li&gt;
+            </code></pre>
+          </section>
+
+
+
+          <section>
+            <h5>Handlebars</h5>
+            <pre class="invisible centered"><code class="hbs" data-trim data-noescape>
+              &lt;a {{bind-attr href=url}}&gt;&lt;/a&gt;
+            </code></pre>
+
+            <br/><br/>
+
+            <h5>HTMLbars</h5>
+            <pre class="invisible centered"><code class="handlebars" data-trim data-noescape>
+              &lt;a href={{url}}&gt;&lt;/a&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Glimmer</h2>
+            <iframe width="1000" height="512" src="https://www.youtube.com/embed/SXd9cnndB74" frameborder="0" allowfullscreen></iframe>
+          </section>
+        </section>
+
+
+
+        <section>
+          <h3>Ember.js</h3>
+          <h1>Goals</h1>
+        </section>
+
+        <section>
+          <h2>Releases</h2>
+          <div class="columns">
+            <div class="column-1 ember-releases">
+              <h5>Ember.js</h5>
+              <ol class="releases">
+                <li style="top:  0.00%"> 1.0.0</li>
+                <li style="top:  5.10%"> 1.1.0</li>
+                <li style="top:  8.30%"> 1.2.0</li>
+                <li style="top: 12.30%" class="year">Jan 1, 2014</li>
+                <li style="top: 12.80%"> 1.3.0</li>
+                <li style="top: 16.60%"> 1.4.0</li>
+                <li style="top: 21.00%"> 1.5.0</li>
+                <li style="top: 31.00%"> 1.6.0</li>
+                <li style="top: 35.30%"> 1.7.0</li>
+                <li style="top: 42.30%"> 1.8.0</li>
+                <li style="top: 46.40%"> 1.9.0</li>
+                <li style="top: 48.80%" class="year">Jan 1, 2015</li>
+                <li style="top: 52.50%">1.10.0</li>
+                <li style="top: 57.40%">1.11.0</li>
+                <li style="top: 62.00%">1.12.0</li>
+                <li style="top: 65.00%">1.13.0</li>
+                <li style="top: 73.00%"> 2.0.0</li>
+                <li style="top: 76.50%"> 2.1.0</li>
+                <li style="top: 80.70%"> 2.2.0</li>
+                <li style="top: 85.30%" class="year">Jan 1, 2016</li>
+                <li style="top: 86.90%"> 2.3.0</li>
+                <li style="top: 91.20%"> 2.4.0</li>
+                <li style="top: 95.40%"> 2.5.0</li>
+              </ol>
+            </div>
+            <div class="column-2 ember-data-releases">
+              <h5>Ember Data</h5>
+              <ol class="releases">
+                <li style="top:  0.10%"> 1.0.0-beta.1</li>
+                <li style="top:  0.40%"> 1.0.0-beta.2</li>
+                <li style="top:  2.80%"> 1.0.0-beta.3</li>
+                <li style="top: 11.00%"> 1.0.0-beta.4</li>
+                <li style="top: 12.30%" class="year">Jan 1, 2014</li>
+                <li style="top: 13.30%"> 1.0.0-beta.5</li>
+                <li style="top: 14.70%"> 1.0.0-beta.6</li>
+                <li style="top: 17.20%"> 1.0.0-beta.7</li>
+                <li style="top: 27.00%"> 1.0.0-beta.8</li>
+                <li style="top: 35.20%"> 1.0.0-beta.9</li>
+                <li style="top: 37.40%">1.0.0-beta.10</li>
+                <li style="top: 40.80%">1.0.0-beta.11</li>
+                <li style="top: 45.10%">1.0.0-beta.12</li>
+                <li style="top: 48.10%">1.0.0-beta.14</li>
+                <li style="top: 48.80%" class="year">Jan 1, 2015</li>
+                <li style="top: 53.20%">1.0.0-beta.15</li>
+                <li style="top: 56.90%">1.0.0-beta.16</li>
+                <li style="top: 61.70%">1.0.0-beta.17</li>
+                <li style="top: 62.50%">1.0.0-beta.18</li>
+                <li style="top: 64.30%">1.0.0-beta.19</li>
+                <li style="top: 65.40%">1.13.0</li>
+                <li style="top: 71.90%"> 2.0.0</li>
+                <li style="top: 76.50%"> 2.1.0</li>
+                <li style="top: 80.70%"> 2.2.0</li>
+                <li style="top: 85.30%" class="year">Jan 1, 2016</li>
+                <li style="top: 86.40%"> 2.3.0</li>
+                <li style="top: 91.20%"> 2.4.0</li>
+                <li style="top: 95.40%"> 2.5.0</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Builds</h2>
+          <img src="images/release-tomsters.png" />
+          <label class="release-label">Canary</label>
+          <label class="release-label">Beta</label>
+          <label class="release-label">Release</label>
+          <label class="release-label">LTS</label>
+        </section>
+
+        <section>
+          <h2>2.0</h2>
+        </section>
+
+        <section>
+          <h2>2.x</h2>
+          <ul>
+            <li class="fragment">
+              Routable Components<br/>
+              <code style="color: #bb9860;">&lt;component&gt;</code> vs. <code style="color: #bb9860;">{{component}}</code>
+            </li>asdfadsfasdfasdfs
+            <li class="fragment">Engines</li>
+            <li class="fragment">FastBoot</li>
+            <li class="fragment">Glimmer 2</li>
+            <li class="fragment">More ES6 syntax (Decorators)</li>
+            <li class="fragment">Universal Event Dispatch</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>The End</h1>
+          <img src="images/zoey.png"/>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

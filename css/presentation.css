@@ -1,0 +1,189 @@
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5 {
+  font-family: Lato;
+  text-transform: none;
+}
+.reveal h2 {
+  color: #6da2a7;
+  color: #bb9860;
+}
+.reveal h3 {
+  color: #8a9c4d;
+}
+.reveal h4 {
+  color: #6da2a7;
+}
+.reveal h5 {
+  font-size: 0.83em;
+  color: #a27050;
+}
+
+.reveal h1 + h3 {
+  position: relative;
+  top: -0.5em;
+}
+.reveal h3 + h1 {
+  position: relative;
+  top: -0.5em;
+}
+
+.reveal section img {
+  margin: 15px 0px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.columns {
+  display: table;
+  width: 100%;
+}
+
+.columns .column-1 {
+  display: table-cell;
+  vertical-align: middle;
+  width: 45%;
+}
+
+.columns .column-2 {
+  display: table-cell;
+  vertical-align: middle;
+  width: 55%;
+}
+
+.reveal .columns pre {
+  font-size: 15px;
+}
+
+.reveal pre.invisible {
+  box-shadow: none;
+}
+
+.reveal pre.big {
+  font-size: 1em;
+}
+
+.reveal pre.centered {
+  text-align: center;
+}
+
+.reveal pre.invisible code {
+  padding: 0;
+  background: transparent;
+}
+
+.reveal div + div.fragment {
+  margin-top: 3em;
+}
+
+.columns .ember-releases,
+.columns .ember-data-releases {
+  vertical-align: top;
+  height: 520px;
+}
+
+.columns .ember-releases .releases,
+.columns .ember-data-releases .releases {
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.reveal .releases {
+  font-size: 0.4em;
+}
+
+.columns .ember-releases li {
+  text-align: right;
+  right: 200px;
+}
+
+.columns .ember-releases li.year {
+  right: 320px;
+}
+
+.columns .ember-data-releases li {
+  text-align: left;
+  left: 200px;
+}
+
+.columns .ember-data-releases li.year {
+  left: 320px;
+}
+
+
+
+.reveal .releases li {
+  display: block;
+  position: absolute;
+}
+
+.reveal .releases li.year {
+  color: #8a9c4d;
+}
+
+.reveal .ember-releases li::after {
+  content: '.';
+  color: transparent;
+  position: absolute;
+  right: -207px;
+  width: 190px;
+  top: 0.6em;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.reveal .ember-releases li.year::after {
+  right: -327px;
+  width: 310px;
+  background: rgba(85, 138, 166, 0.6);
+  background: rgba(138, 156, 77, 0.6);
+}
+
+.reveal .ember-data-releases li::after {
+  content: '.';
+  color: transparent;
+  position: absolute;
+  left: -207px;
+  width: 190px;
+  top: 0.6em;
+  height: 1px;
+  background: #555;
+}
+
+.reveal .ember-data-releases li.year::after {
+  left: -327px;
+  width: 310px;
+  background: rgba(85, 138, 166, 0.6);
+  background: rgba(138, 156, 77, 0.6);
+}
+
+.images {
+  position: relative;
+  width: 960px;
+  height: 620px;
+}
+
+.images > * {
+  background: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.images pre {
+  background: #222;
+  margin: 15px 0;
+  box-shadow: none;
+}
+
+label.release-label {
+  width: 215px;
+  display: inline-block;
+  text-indent: 10px;
+}
